@@ -3,110 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive To-Do List</title>
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="style.css"/>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="app">
-
-        <section class="greeting">
-            <h2 class="title">
-                What's up, <input type="text" id="name" placeholder="Name here">
-
-            </h2>
-        </section>
-
-        <section class="create-todo">
-            <h3>CREATE A TODO</h3>
-            <form id="new-todo-form">
-                <h4>What's on your TODO?</h4>
-                <input 
-                    type="text" 
-                    name="content" 
-                    id="content" 
-                    placeholder="e.g. make a video" />
-
-                    <h4>Pick a category</h4>
-                    <div class="options">
-
-                        <label>
-                            <input
-                                 type="radio"
-                                 name="category"
-                                 id="category1" 
-                                 value="business" />
-                                 
-                                 <span class="bubble business"></span>
-                                 <div>Business</div>
-                                
-                        </label>
-
-                        <label>
-                            <input
-                                 type="radio"
-                                 name="category"
-                                 id="category2" 
-                                 value="personal" />
-                                 
-                                 <span class="bubble personal"></span>
-                                 <div>Personal</div>
-                                
-                        </label>
-
-
-                    </div>
-
-                    <input type="submit" value="Add TODO">
-            </form>
-
-        </section>
-
-        <section class="todo-list">
-            <h3>TODO List</h3>
-            <div class="list" id="todo-list">
-                <div class="todo-item">
-                    <label>
-                        <input type ="checkbox"/>
-                        <span class="bubble business"></span>
-
-                    </label>
-                    <div class="todo-content">
-                        <input type="text" value="make a video" readonly/>
-                    </div>
-                    <div class="actions">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </div>
-                </div>
-                <div class="todo-item">
-                    <label>
-                        <input type ="checkbox"/>
-                        <span class="bubble personal"></span>
-
-                    </label>
-                    <div class="todo-content">
-                        <input type="text" value="get some milk" readonly/>
-                    </div>
-                    <div class="actions">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </div>
-                </div>
+    <div class="container">
+        <h1>Welcome to Your To-Do List</h1>
+        <div class="greeting">
+            <div class="title">
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" placeholder="Your name">
             </div>
-        </section>
+        </div>
 
-
-
-    </main>
-
-
+        <form id="new-todo-form" class="create-todo">
+            <input type="text" name="content" id="content" placeholder="Enter your task here" required>
+            <div class="options">
+                <label>
+                    <input type="radio" name="category" value="personal" required>
+                    <span class="bubble personal"></span>
+                    <div>Personal</div>
+                </label>
+                <label>
+                    <input type="radio" name="category" value="business" required>
+                    <span class="bubble business"></span>
+                    <div>Business</div>
+                </label>
+            </div>
+            <input type="submit" value="Add Task">
+        </form>
+        <button id="clear-all-btn">Clear All</button>
+        <div id="todo-list" class="todo-list">
+            <div class="list"></div>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
